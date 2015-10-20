@@ -29,7 +29,7 @@ import com.pengyang.ccweb.bo.User;
 import com.pengyang.ccweb.tools.ImgDataUtil;
 
 /**
- * ¹«¸æ¹ÜÀí
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author xuchaoguo
  *
  */
@@ -61,7 +61,7 @@ public class AnnouncementController {
 		req.setParam("i_page", page);
 		req.setParam("i_perpage", pageRow);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 
@@ -146,7 +146,7 @@ public class AnnouncementController {
 		else
 			req.setParam("i_announcement_object", targetIds);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 		return message;
@@ -164,7 +164,7 @@ public class AnnouncementController {
 		req.setParam("i_announcement_id", id);
 		req.setParam("i_user_id", user.getAdminId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 		return message;
@@ -188,7 +188,7 @@ public class AnnouncementController {
 		req.setParam("i_status", verifyStatus);
 		req.setParam("i_verify_desc", verifyDesc);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 		return message;
@@ -204,7 +204,7 @@ public class AnnouncementController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_announcement_id", id);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		if (resp.getErroNo() == 0) {
 			if (resp.next()) {

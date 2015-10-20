@@ -27,7 +27,7 @@ import com.pengyang.ccweb.bo.PageWrapper;
 import com.pengyang.ccweb.bo.User;
 
 /**
- * ÍâÇÚ¼ÇÂ¼
+ * ï¿½ï¿½ï¿½Ú¼ï¿½Â¼
  * 
  * @author xuchaoguo
  * 
@@ -61,7 +61,7 @@ public class CheckoutController {
 		req.setParam("i_page", page);
 		req.setParam("i_perpage", pageRow);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 
@@ -116,7 +116,7 @@ public class CheckoutController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_outside_id", id);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() == 0) {
 			if (resp.next()) {
 				Checkout checkout = new Checkout();

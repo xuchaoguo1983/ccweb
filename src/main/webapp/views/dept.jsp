@@ -11,48 +11,60 @@
 		<span class="title">部门管理</span>
 	</div>
 
-	<div class="container-fluid">
-		<div class="row" style="padding: 15px 15px;">
-			<div class="col-lg-4" style="padding: 0px;">
-				<div id="deptpanel_1" class="mypanel">
+	<div style="padding-left:10px;padding-top: 15px;width:1300px;">
+		<div id="deptpanel_1" class="mypanel">
 
-					<!-- List group -->
-					<div class="list-group"></div>
+			<!-- List group -->
+			<div class="list-group"></div>
 
-					<br /> <br />
+			<br /> <br />
 
-					<div class="myfoot">
-						<a onclick="createDept(1);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
-					</div>
-				</div>
-
+			<div class="myfoot">
+				<a onclick="createDept(1);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
 			</div>
-			<div class="col-lg-4" style="padding: 0 5px;">
-				<div id="deptpanel_2" class="mypanel hide">
+		</div>
+		<div id="deptpanel_2" class="mypanel hide">
 
-					<!-- List group -->
-					<div class="list-group"></div>
+			<!-- List group -->
+			<div class="list-group"></div>
 
-					<br /> <br />
+			<br /> <br />
 
-					<div class="myfoot">
-						<a onclick="createDept(2);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
-					</div>
-				</div>
-
+			<div class="myfoot">
+				<a onclick="createDept(2);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
 			</div>
-			<div class="col-lg-4" style="padding: 0px;">
-				<div id="deptpanel_3" class="mypanel hide">
+		</div>
+		<div id="deptpanel_3" class="mypanel hide">
 
-					<!-- List group -->
-					<div class="list-group"></div>
+			<!-- List group -->
+			<div class="list-group"></div>
 
-					<br /> <br />
+			<br /> <br />
 
-					<div class="myfoot">
-						<a onclick="createDept(3);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
-					</div>
-				</div>
+			<div class="myfoot">
+				<a onclick="createDept(3);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
+			</div>
+		</div>
+		<div id="deptpanel_4" class="mypanel hide">
+
+			<!-- List group -->
+			<div class="list-group"></div>
+
+			<br /> <br />
+
+			<div class="myfoot">
+				<a onclick="createDept(4);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
+			</div>
+		</div>
+		<div id="deptpanel_5" class="mypanel hide">
+
+			<!-- List group -->
+			<div class="list-group"></div>
+
+			<br /> <br />
+
+			<div class="myfoot">
+				<a onclick="createDept(5);"><i class="fa fa-plus fa-fw"></i>创建新部门</a>
 			</div>
 		</div>
 	</div>

@@ -23,7 +23,9 @@
 				<label for="deptname">部门：</label> <select
 					class="form-control input-sm dept_1"></select> <select
 					class="form-control input-sm dept_2"></select> <select
-					class="form-control input-sm dept_3"></select>
+					class="form-control input-sm dept_3"></select> <select
+					class="form-control input-sm dept_4"></select> <select
+					class="form-control input-sm dept_5"></select>
 			</div>
 		</form>
 	</div>
@@ -217,7 +219,9 @@
 							<label for="deptname">目标部门：</label> <select
 								class="form-control input-sm dept_1"></select> <select
 								class="form-control input-sm dept_2"></select> <select
-								class="form-control input-sm dept_3"></select>
+								class="form-control input-sm dept_3"></select> <select
+								class="form-control input-sm dept_4"></select> <select
+								class="form-control input-sm dept_5"></select>
 						</div>
 					</form>
 				</div>

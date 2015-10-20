@@ -27,7 +27,7 @@ import com.pengyang.ccweb.bo.PageWrapper;
 import com.pengyang.ccweb.bo.User;
 
 /**
- * 商会信息
+ * 锟教伙拷锟斤拷息
  * 
  * @author xuchaoguo
  * 
@@ -59,7 +59,7 @@ public class ChamberInfoController {
 		req.setParam("i_page", page);
 		req.setParam("i_perpage", pageRow);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 
@@ -145,7 +145,7 @@ public class ChamberInfoController {
 			req.setParam("i_hot_picture", "");
 		}
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}
@@ -165,7 +165,7 @@ public class ChamberInfoController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_info_id", id);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() == 0) {
 			if (resp.next()) {
 				ChamberInfo chamberInfo = new ChamberInfo();
@@ -203,7 +203,7 @@ public class ChamberInfoController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_info_id", id);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		return Message.fromResponse(resp);
 	}
 }

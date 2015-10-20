@@ -31,7 +31,7 @@ import com.pengyang.ccweb.tools.QRCodeGenerator;
 
 
 /**
- * µÇÂ½ÍË³ö
+ * ï¿½ï¿½Â½ï¿½Ë³ï¿½
  * 
  * @author xuchaoguo
  * 
@@ -63,7 +63,7 @@ public class LoginController {
 		req.setParam("i_admin_mobile", login.getPhone());
 		req.setParam("i_admin_pwd", login.getPassword());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		if (resp.getErroNo() != 0) {
 			// login failed
@@ -138,7 +138,7 @@ public class LoginController {
 		if (object == null) {
 			Message message = new Message();
 			message.setCode(-9999);
-			message.setMessage("ÌõÂëÒÑÊ§Ð§");
+			message.setMessage("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§Ð§");
 			return message;
 		}
 
@@ -146,7 +146,7 @@ public class LoginController {
 		if (!code.isActive()) {
 			Message message = new Message();
 			message.setCode(-9999);
-			message.setMessage("ÌõÂëÒÑÊ§Ð§");
+			message.setMessage("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§Ð§");
 			return message;
 		}
 
@@ -157,7 +157,7 @@ public class LoginController {
 		req.setParam("i_client", code.getClient());
 		req.setParam("i_auth_type", code.getAuthType());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() == 0) {
 			// login success
 			if (resp.next()) {

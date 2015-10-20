@@ -34,7 +34,7 @@ import com.pengyang.ccweb.bo.User;
 import com.pengyang.ccweb.tools.ExcelReader;
 
 /**
- * ³ÉÔ±¹ÜÀí
+ * ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
  * 
  * @author xuchaoguo
  * 
@@ -64,7 +64,7 @@ public class MemberController {
 		req.setParam("i_page", page);
 		req.setParam("i_perpage", pageRow);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 
@@ -158,7 +158,7 @@ public class MemberController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_user_id", userId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		Message message = Message.fromResponse(resp);
 		if (resp.getErroNo() == 0) {
 			if (resp.next()) {
@@ -197,7 +197,7 @@ public class MemberController {
 			req.setParam("i_company_id", user.getCompanyId());
 			req.setParam("i_user_id", Integer.valueOf(idStr));
 
-			ARResponse resp = ARCorrespond.post(req);
+			ARResponse resp = ARCorrespond.post(null, req);
 			if (resp.getErroNo() != 0) {
 				return Message.fromResponse(resp);
 			}
@@ -225,7 +225,7 @@ public class MemberController {
 			req.setParam("i_old_dept_id", deptId);
 			req.setParam("i_new_dept_id", targetDeptId);
 
-			ARResponse resp = ARCorrespond.post(req);
+			ARResponse resp = ARCorrespond.post(null, req);
 			if (resp.getErroNo() != 0) {
 				return Message.fromResponse(resp);
 			}
@@ -244,7 +244,7 @@ public class MemberController {
 
 		if (file.isEmpty()) {
 			message.setCode(-1);
-			message.setMessage("ÎÄ¼þÎª¿Õ");
+			message.setMessage("ï¿½Ä¼ï¿½Îªï¿½ï¿½");
 		} else {
 			try {
 				File convFile = new File(file.getOriginalFilename());
@@ -286,11 +286,11 @@ public class MemberController {
 
 				} else {
 					message.setCode(-1);
-					message.setMessage("Ã»ÓÐÊý¾Ý.");
+					message.setMessage("Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
 				}
 
 			} catch (IOException e) {
-				log.error("ÉÏ´«ÎÄ¼þÊ§°Ü£º", e);
+				log.error("ï¿½Ï´ï¿½ï¿½Ä¼ï¿½Ê§ï¿½Ü£ï¿½", e);
 				message.setCode(-1);
 				message.setMessage(e.getMessage());
 			}

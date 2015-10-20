@@ -12,11 +12,9 @@
 	<div id="titlebar">
 		<span class="title">审批模版管理</span>
 	</div>
-
-	<div class="container-fluid">
-		<div class="row" style="padding: 15px 15px;">
-			<div class="col-lg-4" style="padding: 0px;">
-				<div id="deptpanel_1" class="mypanel">
+	
+	<div style="padding-left:10px; padding-top:15px;">
+		<div id="deptpanel_1" class="mypanel">
 
 					<!-- List group -->
 					<div id="templateListGroup" class="list-group"></div>
@@ -27,9 +25,7 @@
 						<a onclick="createTemplate();"><i class="fa fa-plus fa-fw"></i>创建新模版</a>
 					</div>
 				</div>
-
-			</div>
-			<div class="col-lg-4" style="padding: 0 5px;">
+				
 				<div id="deptpanel_2" class="mypanel hide">
 
 					<!-- List group -->
@@ -41,9 +37,7 @@
 						<a onclick="addTemplateDept();"><i class="fa fa-plus fa-fw"></i>添加适用部门</a>
 					</div>
 				</div>
-
-			</div>
-			<div class="col-lg-4" style="padding: 0px;">
+				
 				<div id="deptpanel_3" class="mypanel hide">
 
 					<!-- List group -->
@@ -56,9 +50,10 @@
 							class="fa fa-plus fa-fw"></i>添加审批人</a>
 					</div>
 				</div>
-			</div>
-		</div>
+		
 	</div>
+
+	
 
 	<!-- edit dialog -->
 	<div id="templateModel" role="dialog" class="modal fade">
@@ -121,7 +116,9 @@
 							<label for="deptname" class="control-label">适用部门：</label> <select
 								class="form-control input-sm dept_1"></select> <select
 								class="form-control input-sm dept_2"></select> <select
-								class="form-control input-sm dept_3"></select>
+								class="form-control input-sm dept_3"></select> <select
+								class="form-control input-sm dept_4"></select> <select
+								class="form-control input-sm dept_5"></select>
 						</div>
 
 						<div class="checkbox">
@@ -161,7 +158,9 @@
 										<label for="deptname">部门：</label> <select
 											class="form-control input-sm dept_1"></select> <select
 											class="form-control input-sm dept_2"></select> <select
-											class="form-control input-sm dept_3"></select>
+											class="form-control input-sm dept_3"></select> <select
+											class="form-control input-sm dept_4"></select> <select
+											class="form-control input-sm dept_5"></select>
 									</div>
 								</form>
 							</div>

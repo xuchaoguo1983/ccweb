@@ -25,7 +25,7 @@ import com.pengyang.ccweb.bo.JsTreeNode;
 import com.pengyang.ccweb.bo.User;
 
 /**
- * JsTree·þÎñÆ÷Êý¾Ý¹ÜÀí
+ * JsTreeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½
  * @author xuchaoguo
  *
  */
@@ -49,7 +49,7 @@ public class JSTreeTargetController {
 		req.setParam("i_page", 1);
 		req.setParam("i_perpage", Integer.MAX_VALUE);// get all jobs
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		List<JsTreeNode> list = new ArrayList<JsTreeNode>();
 

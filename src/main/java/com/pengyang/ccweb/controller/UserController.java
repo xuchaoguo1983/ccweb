@@ -39,7 +39,7 @@ public class UserController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_user_id", user.getAdminId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		Message message = Message.fromResponse(resp);
 		if (resp.getErroNo() == 0) {
 			if (resp.next()) {
@@ -88,7 +88,7 @@ public class UserController {
 		req.setParam("i_office_tel", member.getOfficeTell());
 		req.setParam("i_birth_place", member.getBirthPlace());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() == 0) {
 			user.setMember(member);
 		}

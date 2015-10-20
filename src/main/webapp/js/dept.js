@@ -135,7 +135,7 @@ function addDeptItem(listgroup, data, plv) {
 }
 
 function selectDept(deptId, plv) {
-	if (plv >= 3)
+	if (plv >= 5)
 		return false;
 
 	var item = $('#' + deptId);

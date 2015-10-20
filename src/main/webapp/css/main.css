@@ -236,7 +236,11 @@ a {
 	color: #7a7a7a;
 	font-size: 14px;
 	border-radius: 0px;
-	min-height: 500px;
+	width:250px;
+	display:inline;
+	float:left;
+	margin-left:5px;
+	min-height: 200px;
 	border: 1px solid transparent;
 	border-color: #d5d5d5;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -354,9 +358,9 @@ a {
 }
 
 .mypanel .myfoot {
-	position: absolute;
-	bottom: 10px;
-	padding-left: 40%;
+	position: relative;
+	left:80px;
+	padding-bottom:15px;
 }
 
 .mypanel .myfoot a {

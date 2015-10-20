@@ -29,7 +29,7 @@ import com.pengyang.ccweb.bo.TemplateDeptApproval;
 import com.pengyang.ccweb.bo.User;
 
 /**
- * ÉóÅúÄ£°æ¹ÜÀí
+ * ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @author xuchaoguo
  * 
@@ -52,9 +52,9 @@ public class TemplateController {
 		req.setBranchNo(Constants.BRANCH_NO);
 		req.setFunctionNo(EFunctionID.TEMPLATE_LIST.getId());
 		req.setParam("i_company_id", user.getCompanyId());
-		req.setParam("i_status", 1);// Ä£°å×´Ì¬ 1¿ÉÓÃ 0²»¿ÉÓÃ -1È«²¿
+		req.setParam("i_status", 1);// Ä£ï¿½ï¿½×´Ì¬ 1ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -1È«ï¿½ï¿½
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		List<Template> list = new ArrayList<Template>();
 
@@ -117,7 +117,7 @@ public class TemplateController {
 		req.setParam("i_template_name", template.getTemplateName());
 		req.setParam("i_template_type", template.getTemplateType());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() != 0)
 			return Message.fromResponse(resp);
 		return this.listTemplates(session);
@@ -135,7 +135,7 @@ public class TemplateController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_template_id", templateId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}
@@ -152,7 +152,7 @@ public class TemplateController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_template_id", templateId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		Message message = Message.fromResponse(resp);
 		if (resp.getErroNo() == 0) {
 			List<TemplateDept> list = new ArrayList<TemplateDept>();
@@ -191,7 +191,7 @@ public class TemplateController {
 		req.setParam("i_template_id", templateId);
 		req.setParam("i_dept_id", deptId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() != 0)
 			return Message.fromResponse(resp);
 		return this.listTemplateDepts(templateId, session);
@@ -209,7 +209,7 @@ public class TemplateController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_config_id", configId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}
@@ -226,7 +226,7 @@ public class TemplateController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_config_id", configId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		Message message = Message.fromResponse(resp);
 		if (resp.getErroNo() == 0) {
 			List<TemplateDeptApproval> list = new ArrayList<TemplateDeptApproval>();
@@ -286,7 +286,7 @@ public class TemplateController {
 		req.setParam("i_config_id", configId);
 		req.setParam("i_user_id", userId);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}

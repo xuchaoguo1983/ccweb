@@ -5,7 +5,7 @@
 $(function() {
 	$('#depts').cxSelect({
 		url : './depts/select',
-		selects : [ 'dept_1', 'dept_2', 'dept_3' ],
+		selects : [ 'dept_1', 'dept_2', 'dept_3', 'dept_4', 'dept_5' ],
 		required : false,
 		nodata : 'none',
 	});
@@ -32,6 +32,24 @@ $(function() {
 		var val = Number($(this).val());
 		if (val <= 0) {
 			val = Number($('#depts .dept_2').val());
+		}
+
+		queryMembers(val, 1);
+	});
+
+	$('#depts .dept_4').change(function() {
+		var val = Number($(this).val());
+		if (val <= 0) {
+			val = Number($('#depts .dept_3').val());
+		}
+
+		queryMembers(val, 1);
+	});
+
+	$('#depts .dept_5').change(function() {
+		var val = Number($(this).val());
+		if (val <= 0) {
+			val = Number($('#depts .dept_4').val());
 		}
 
 		queryMembers(val, 1);
@@ -99,7 +117,7 @@ $(function() {
 			// load dept list at the 1st time
 			$('#targetDepts').cxSelect({
 				url : './depts/select',
-				selects : [ 'dept_1', 'dept_2', 'dept_3' ],
+				selects : [ 'dept_1', 'dept_2', 'dept_3', 'dept_4', 'dept_5' ],
 				required : false,
 				nodata : 'none',
 			});
@@ -234,17 +252,11 @@ function getActiveDept(deptdiv) {
 	if (deptdiv == null)
 		deptdiv = 'depts';
 
-	var val = $('#' + deptdiv + ' .dept_3').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
-
-	var val = $('#' + deptdiv + ' .dept_2').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
-
-	var val = $('#' + deptdiv + ' .dept_1').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
+	for (var i = 5; i > 0; i--) {
+		var val = $('#' + deptdiv + ' .dept_' + i).val();
+		if (val != null && Number(val) != 0)
+			return Number(val);
+	}
 
 	return null;
 }
@@ -252,22 +264,14 @@ function getActiveDept(deptdiv) {
 function getActiveDeptName() {
 	var name = '';
 
-	var dept = $('#depts .dept_1');
-	var val = dept.val();
-	if (val != null && Number(val) != 0) {
-		name += dept.find("option:selected").text();
-	}
-	var dept = $('#depts .dept_2');
-	var val = dept.val();
-	if (val != null && Number(val) != 0) {
-		name += "/";
-		name += dept.find("option:selected").text();
-	}
-	var dept = $('#depts .dept_3');
-	var val = dept.val();
-	if (val != null && Number(val) != 0) {
-		name += "/";
-		name += dept.find("option:selected").text();
+	for (var i = 1; i <= 5; i++) {
+		var dept = $('#depts .dept_' + i);
+		var val = dept.val();
+		if (val != null && Number(val) != 0) {
+			if (name.length > 0)
+				name += "/";
+			name += dept.find("option:selected").text();
+		}
 	}
 
 	return name;
@@ -382,32 +386,34 @@ function setMemberInfo(data) {
 	$("#infobar #addressCell").html(data.address);
 	$("#infobar #officeTellCell").html(data.officeTell);
 	$("#infobar #birthPlaceCell").html(data.birthPlace);
-	
+
 	// bind click event
 	$("#editMemberLink").unbind("click");
-	$("#editMemberLink").bind("click", function() {
-		$("#memberform #userId").val(data.userId);
-		$('#memberModel .modal-title').html('编辑成员');
+	$("#editMemberLink").bind(
+			"click",
+			function() {
+				$("#memberform #userId").val(data.userId);
+				$('#memberModel .modal-title').html('编辑成员');
 
-		var deptId = getActiveDept();
-		if (deptId == null || deptId == 0) {
-			return false;
-		}
+				var deptId = getActiveDept();
+				if (deptId == null || deptId == 0) {
+					return false;
+				}
 
-		// copy member data
-		$("#userName").val($("#infobar #userNameCell").html());
-		$("#mobile").val($("#infobar #mobileCell").html());
-		$("#companyName").val($("#infobar #companyNameCell").html());
-		$("#position").val($("#infobar #positionCell").html());
-		$("#status").val(
-				getMapKeyByVal(MEMBER_STATUS_MAP, $(
-						"#infobar #statusCell").html()));
-		$("#address").val($("#infobar #addressCell").html());
-		$("#officeTell").val($("#infobar #officeTellCell").html());
-		$("#birthPlace").val($("#infobar #birthPlaceCell").html());
+				// copy member data
+				$("#userName").val($("#infobar #userNameCell").html());
+				$("#mobile").val($("#infobar #mobileCell").html());
+				$("#companyName").val($("#infobar #companyNameCell").html());
+				$("#position").val($("#infobar #positionCell").html());
+				$("#status").val(
+						getMapKeyByVal(MEMBER_STATUS_MAP, $(
+								"#infobar #statusCell").html()));
+				$("#address").val($("#infobar #addressCell").html());
+				$("#officeTell").val($("#infobar #officeTellCell").html());
+				$("#birthPlace").val($("#infobar #birthPlaceCell").html());
 
-		$('#memberModel').modal('show');
-	});
+				$('#memberModel').modal('show');
+			});
 
 	$("#infobar").show();
 }

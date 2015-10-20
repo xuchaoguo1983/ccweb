@@ -33,7 +33,7 @@ import com.pengyang.ccweb.bo.Message;
 import com.pengyang.ccweb.bo.User;
 
 /**
- * ²¿ÃÅ¹ÜÀí
+ * ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
  * 
  * @author xuchaoguo
  * 
@@ -57,7 +57,7 @@ public class DeptmentController {
 		req.setParam("i_pre_dept_id", pid);
 		req.setParam("i_company_id", user.getCompanyId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		List<Dept> list = new ArrayList<Dept>();
 
@@ -105,7 +105,7 @@ public class DeptmentController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_dept_name", name);
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Message message = Message.fromResponse(resp);
 		if (resp.getErroNo() == 0) {
@@ -155,7 +155,7 @@ public class DeptmentController {
 		req.setParam("i_dept_id", deptId);
 		req.setParam("i_company_id", user.getCompanyId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}
@@ -182,7 +182,7 @@ public class DeptmentController {
 		req.setParam("i_index_no2", deptIndex2);
 		req.setParam("i_company_id", user.getCompanyId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		return Message.fromResponse(resp);
 	}
@@ -198,7 +198,7 @@ public class DeptmentController {
 		req.setFunctionNo(EFunctionID.DEPT_ALL.getId());
 		req.setParam("i_company_id", user.getCompanyId());
 
-		ARResponse resp = ARCorrespond.post(req);
+		ARResponse resp = ARCorrespond.post(null, req);
 
 		Map<Integer, List<DeptSelect>> map = new HashMap<Integer, List<DeptSelect>>();
 

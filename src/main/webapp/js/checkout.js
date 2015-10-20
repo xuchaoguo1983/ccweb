@@ -131,11 +131,11 @@ function selectCheckoutMembers() {
 		// load dept list at the 1st time
 		$('#seldepts').cxSelect({
 			url : './depts/select',
-			selects : [ 'dept_1', 'dept_2', 'dept_3' ],
+			selects : [ 'dept_1', 'dept_2', 'dept_3', 'dept_4', 'dept_5' ],
 			required : false,
 			nodata : 'none',
 		});
-
+		
 		$('#seldepts dept_1').change(function() {
 			var val = Number($(this).val());
 			if (val > 0) {
@@ -158,6 +158,24 @@ function selectCheckoutMembers() {
 			var val = Number($(this).val());
 			if (val <= 0) {
 				val = Number($('#seldepts .dept_2').val());
+			}
+
+			queryMembers(val, 1);
+		});
+		
+		$('#seldepts .dept_4').change(function() {
+			var val = Number($(this).val());
+			if (val <= 0) {
+				val = Number($('#seldepts .dept_3').val());
+			}
+
+			queryMembers(val, 1);
+		});
+		
+		$('#seldepts .dept_5').change(function() {
+			var val = Number($(this).val());
+			if (val <= 0) {
+				val = Number($('#seldepts .dept_4').val());
 			}
 
 			queryMembers(val, 1);
@@ -230,17 +248,11 @@ function setMemberList(pagedata) {
 }
 
 function getSelectedDept() {
-	var val = $('#seldepts .dept_3').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
-
-	var val = $('#seldepts .dept_2').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
-
-	var val = $('#seldepts .dept_1').val();
-	if (val != null && Number(val) != 0)
-		return Number(val);
+	for (var i = 5; i > 0; i--) {
+		var val = $('#seldepts .dept_' + i).val();
+		if (val != null && Number(val) != 0)
+			return Number(val);
+	}
 
 	return null;
 }
