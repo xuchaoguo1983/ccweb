@@ -27,6 +27,7 @@ import cjscpool2.ARResponse;
 import com.pengyang.ccweb.Constants;
 import com.pengyang.ccweb.EFunctionID;
 import com.pengyang.ccweb.bo.Member;
+import com.pengyang.ccweb.bo.MemberAudit;
 import com.pengyang.ccweb.bo.Message;
 import com.pengyang.ccweb.bo.PageMeta;
 import com.pengyang.ccweb.bo.PageWrapper;
@@ -34,7 +35,7 @@ import com.pengyang.ccweb.bo.User;
 import com.pengyang.ccweb.tools.ExcelReader;
 
 /**
- * ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+ * ³ÉÔ±¹ÜÀíÄ£¿é
  * 
  * @author xuchaoguo
  * 
@@ -136,7 +137,7 @@ public class MemberController {
 		req.setParam("i_office_tel", member.getOfficeTell());
 		req.setParam("i_birth_place", member.getBirthPlace());
 
-		ARResponse resp = ARCorrespond.post(null,req);
+		ARResponse resp = ARCorrespond.post(null, req);
 		if (resp.getErroNo() != 0) {
 			// update failed
 			return Message.fromResponse(resp);
@@ -244,7 +245,7 @@ public class MemberController {
 
 		if (file.isEmpty()) {
 			message.setCode(-1);
-			message.setMessage("ï¿½Ä¼ï¿½Îªï¿½ï¿½");
+			message.setMessage("Î´ÕÒµ½ÎÄ¼þ");
 		} else {
 			try {
 				File convFile = new File(file.getOriginalFilename());
@@ -286,14 +287,65 @@ public class MemberController {
 
 				} else {
 					message.setCode(-1);
-					message.setMessage("Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
+					message.setMessage("ÎÄ¼þÄÚÈÝÎª¿Õ.");
 				}
 
 			} catch (IOException e) {
-				log.error("ï¿½Ï´ï¿½ï¿½Ä¼ï¿½Ê§ï¿½Ü£ï¿½", e);
+				log.error("¶ÁÈ¡ÎÄ¼þ³ö´í£º", e);
 				message.setCode(-1);
 				message.setMessage(e.getMessage());
 			}
+		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/member/audits", method = RequestMethod.GET)
+	public String auditIndex(Model model) {
+		return "member_audit";
+	}
+
+	@RequestMapping(value = "/member/audits/{page}", method = RequestMethod.GET)
+	public Message auditlist(@PathVariable int page,
+			@RequestParam(value = "pageRow", defaultValue = "10") int pageRow,
+			Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+
+		ARRequest req = new ARRequest();
+		req.setBranchNo(Constants.BRANCH_NO);
+		req.setFunctionNo(EFunctionID.MEMBER_AUDIT_LIST.getId());
+		req.setParam("i_company_id", user.getCompanyId());
+		req.setParam("i_user_id", user.getAdminId());
+		req.setParam("i_page", page);
+		req.setParam("i_perpage", pageRow);
+
+		ARResponse resp = ARCorrespond.post(null, req);
+
+		Message message = Message.fromResponse(resp);
+
+		if (resp.getErroNo() == 0) {
+			List<MemberAudit> list = new ArrayList<MemberAudit>();
+			PageMeta pageMeta = new PageMeta();
+			pageMeta.setPageRow(pageRow);
+			pageMeta.setPage(page);
+
+			while (resp.next()) {
+				MemberAudit auditInfo = new MemberAudit();
+
+				auditInfo.setCompanyId(resp.getValue("company_id"));
+				auditInfo.setRecordId(resp.getValue("record_id"));
+				auditInfo.setUserId(Integer.valueOf(resp.getValue("user_id")));
+				auditInfo.setUserName(resp.getValue("user_name"));
+				auditInfo.setApplyDate(resp.getValue("apply_date"));
+				auditInfo.setApplyTime(resp.getValue("apply_time"));
+
+				list.add(auditInfo);
+			}
+
+			PageWrapper pw = new PageWrapper();
+			pw.setData(list);
+			pw.setPage(pageMeta);
+			message.setData(pw);
 		}
 
 		return message;

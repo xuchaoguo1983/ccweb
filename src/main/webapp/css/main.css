@@ -377,6 +377,10 @@ a {
 	margin: 10px 0px;
 }
 
+#querybar .operation{
+	float:right;
+}
+
 #tablecontainer {
 	min-height: 468px;
 	background-color: #fff;

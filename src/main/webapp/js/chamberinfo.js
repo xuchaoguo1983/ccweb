@@ -25,11 +25,9 @@ $(function() {
 		});
 	});
 
-	$('#addChamberInfoLink').click(
-			function() {
-				location.href = "./chamberinfo/" + $('#category').val()
-						+ "/edit/" + getActiveType();
-			});
+	$('#addChamberInfoLink').click(function() {
+		location.href = baseUrl + "./chamberinfo/" + $('#category').val() + "/edit/" + getActiveType();
+	});
 
 	var typeBtns = $('.btn-group input[type=radio]');
 	if (typeBtns.length == 0) {
@@ -52,7 +50,7 @@ $(function() {
 
 function queryChamberInfos(page) {
 	$.ajax({
-		url : "./chamberinfo/" + $('#category').val() + "/list/"
+		url : baseUrl + "./chamberinfo/" + $('#category').val() + "/list/"
 				+ getActiveType() + "/" + page,
 		type : 'GET',
 		beforeSend : function() {
@@ -145,7 +143,7 @@ function setChamberInfoList(pagedata) {
 }
 
 function editChamberInfo(infoId) {
-	location.href = "./chamberinfo/" + $("#category").val() + "/edit/"
+	location.href = baseUrl + "./chamberinfo/" + $("#category").val() + "/edit/"
 			+ getActiveType() + "/" + infoId;
 }
 
@@ -154,7 +152,7 @@ function removeChamberInfo(infoId) {
 			function(ret) {
 				if (ret == true) {
 					$.ajax({
-						url : "./chamberinfo/" + $("category").val()
+						url : baseUrl + "./chamberinfo/" + $("category").val()
 								+ "/delete/" + infoId,
 						type : 'DELETE',
 						beforeSend : function() {
@@ -184,6 +182,6 @@ function getActiveType() {
 }
 
 function viewChamberInfo(infoId) {
-	location.href = "./chamberinfo/" + $("#category").val() + "/view/"
+	location.href = baseUrl + "./chamberinfo/" + $("#category").val() + "/view/"
 			+ getActiveType() + "/" + infoId;
 }

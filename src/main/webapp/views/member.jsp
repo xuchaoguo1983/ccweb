@@ -27,6 +27,10 @@
 					class="form-control input-sm dept_4"></select> <select
 					class="form-control input-sm dept_5"></select>
 			</div>
+			<div class="form-group operation">
+				<a id="auditModifyLink"> <i class="fa fa-check-square-o fa-fw"></i>审核修改
+				</a>
+			</div>
 		</form>
 	</div>
 

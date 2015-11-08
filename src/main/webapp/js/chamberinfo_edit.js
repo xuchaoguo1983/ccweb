@@ -44,7 +44,7 @@ $(function() {
 	});
 
 	$('#file').fileupload({
-		url : "./fs/upload",
+		url : baseUrl + "./fs/upload",
 		replaceFileInput : false,
 		add : function(e, data) {
 			if (!(/\.(gif|jpg|jpeg|tiff|png)$/i).test(data.files[0].name)) {
@@ -108,7 +108,7 @@ $(function() {
 
 					// 提交数据
 					$.ajax({
-						url : "./chamberinfo/" + $('#category').val()
+						url : baseUrl + "./chamberinfo/" + $('#category').val()
 								+ "/save/" + $('#type').val(),
 						type : 'POST',
 						data : {
@@ -124,7 +124,7 @@ $(function() {
 						success : function(resp) {
 							loadUI.hidePleaseWait();
 							if (resp.code == 0) {
-								location.href = "./chamberinfo/"
+								location.href = baseUrl + "./chamberinfo/"
 										+ $('#category').val() + "?type="
 										+ $('#type').val();
 							} else {

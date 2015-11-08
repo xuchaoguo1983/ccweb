@@ -87,5 +87,7 @@ $(function() {
 	if (element.is('li')) {
 		element.addClass('active');
 	}
+	
+	baseUrl = $('base').attr('href');
 });
 

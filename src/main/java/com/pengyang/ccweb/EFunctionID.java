@@ -20,6 +20,7 @@ public enum EFunctionID {
 	MEMBER_DELETE(640309), // 删除成员
 	MEMBER_MOVE(640310), // 成员部门移动
 	MEMBER_UPLOAD(640311), // 成员批量上传
+	MEMBER_AUDIT_LIST(640548), //查询成员修改记录
 
 	TEMPLATE_CREATE(640081), // 新增模版
 	TEMPLATE_LIST(640082), // 模版列表查询

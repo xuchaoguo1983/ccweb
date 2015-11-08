@@ -140,3 +140,11 @@ function setErrorMessage(divId, message) {
 		return false;
 	}
 }
+
+function go(relative) {
+	if ($("base").length > 0) {
+		location.href = $("base").attr("href") + relative;
+	} else {
+		location.href = url;
+	}
+}
