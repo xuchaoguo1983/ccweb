@@ -11,5 +11,9 @@
 		<a id="backlink"><i class="fa fa-chevron-left fa-fw"></i>返回</a> <span
 			class="title2">审核个人信息修改</span>
 	</div>
+	
+	
+
+	<script src="./js/member_audit.js"></script>
 </body>
 </html>

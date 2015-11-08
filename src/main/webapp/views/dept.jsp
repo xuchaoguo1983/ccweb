@@ -14,7 +14,7 @@
 		</a></span>
 	</div>
 
-	<div style="padding-left:10px;padding-top: 15px;width:1300px;">
+	<div id="deptpanels" style="padding-left:10px;padding-top: 15px;width:1300px;">
 		<div id="deptpanel_1" class="mypanel">
 
 			<!-- List group -->

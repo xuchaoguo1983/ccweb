@@ -246,6 +246,10 @@ $(function() {
 			bootbox.alert('文件上传失败：' + data.errorThrown);
 		}
 	});
+	
+	$("#auditModifyLink").click(function() {
+		location.href = "./member/audits";
+	});
 });
 
 function getActiveDept(deptdiv) {

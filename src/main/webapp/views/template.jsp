@@ -13,7 +13,7 @@
 		<span class="title">审批模版管理</span>
 	</div>
 	
-	<div style="padding-left:10px; padding-top:15px;">
+	<div id="templatePanels" style="padding-left:10px; padding-top:15px;">
 		<div id="deptpanel_1" class="mypanel">
 
 					<!-- List group -->
