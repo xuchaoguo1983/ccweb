@@ -137,14 +137,14 @@ function setAnnouncementList(pagedata) {
 				});
 			}
 
-			if (status == 0 || status == 2) {
+			if (status == 0 || status == 2 || status == 9) {
 				span.append('<i class="fa fa-pencil fa-fw" title="编辑"></i>');
 				span.children(".fa-pencil:first").click(function(e) {
 					editAnnouncement(id.substr(2));
 					return false;
 				});
 			}
-
+			
 			span.append('<i class="fa fa-trash-o fa-fw" title="删除"></i>');
 			span.children(".fa-trash-o:first").click(function(e) {
 				removeAnnouncement(id.substr(2));
@@ -201,7 +201,7 @@ function removeAnnouncement(id) {
 }
 
 function getStatus() {
-	var status = -1;
+	var status = 9;
 	$('input[name="statuBtn"]').each(function() {
 		if ($(this).prop('checked')) {
 			status = $(this).val();

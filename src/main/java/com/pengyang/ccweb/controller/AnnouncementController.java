@@ -29,7 +29,7 @@ import com.pengyang.ccweb.bo.User;
 import com.pengyang.ccweb.tools.ImgDataUtil;
 
 /**
- * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ¹«¸æ¹ÜÀíÄ£¿é
  * @author xuchaoguo
  *
  */
@@ -139,6 +139,7 @@ public class AnnouncementController {
 				ImgDataUtil.parse(announcement.getContent(), imageFilePath));
 		req.setParam("i_user_id", user.getAdminId());
 		req.setParam("i_announcement_type", announcement.getTarget());
+		req.setParam("i_announcement_status", announcement.getStatus());
 
 		String targetIds = announcement.getTargetIds();
 		if (StringUtils.isEmpty(targetIds))

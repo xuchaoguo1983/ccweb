@@ -306,6 +306,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/member/audits/{page}", method = RequestMethod.GET)
+	@ResponseBody
 	public Message auditlist(@PathVariable int page,
 			@RequestParam(value = "pageRow", defaultValue = "10") int pageRow,
 			Model model, HttpSession session) {

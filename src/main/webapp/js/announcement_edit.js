@@ -67,6 +67,12 @@ $(function() {
 	});
 
 	$('#saveBtn').click(function() {
+		$("#status").val("1");
+		$('#annnoucementform').submit();
+	});
+	
+	$('#saveDraftBtn').click(function() {
+		$("#status").val("9");
 		$('#annnoucementform').submit();
 	});
 
@@ -93,7 +99,8 @@ $(function() {
 					"title" : $('#title').val(),
 					"content" : $('#content').code(),
 					"target" : $('#target').val(),
-					"targetIds" : $('#selectedTargets').val()
+					"targetIds" : $('#selectedTargets').val(),
+					"status" : $('#status').val()
 				},
 				beforeSend : function() {
 					loadUI.showPleaseWait();

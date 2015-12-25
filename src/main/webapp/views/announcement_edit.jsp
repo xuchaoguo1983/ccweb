@@ -22,7 +22,9 @@
 
 			<input type="hidden" id="announcementId" name="announcementId"
 				value="${announcement.announcementId }" />
-
+			
+			<input type="hidden" id="status" name="status" value="9" />
+				
 			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">公告标题：</label>
 				<div class="col-sm-9">
@@ -66,8 +68,8 @@
 	</div>
 
 	<div id="footbtns">
-		<button id="saveBtn" type="button" class="btn btn-primary">确
-			定</button>
+		<button id="saveDraftBtn" type="button" class="btn btn-warning">保存为草稿</button>
+		<button id="saveBtn" type="button" class="btn btn-primary">发布</button>
 		<button id="cancelBtn" type="button" class="btn btn-default">取
 			消</button>
 	</div>

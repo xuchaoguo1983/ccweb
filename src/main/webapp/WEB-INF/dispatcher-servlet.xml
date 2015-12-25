@@ -60,5 +60,5 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-		p:defaultEncoding="utf-8" p:maxUploadSize="10240000" p:uploadTempDir="upload/temp"></bean>
+		p:defaultEncoding="utf-8" p:maxUploadSize="10240000"></bean>
 </beans>

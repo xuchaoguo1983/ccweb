@@ -9,9 +9,9 @@
 <body>
 	<div id="titlebar">
 		<span class="title">部门管理</span>
-		<span class="operation"> <a
+		<!--<span class="operation">   <a
 			id="dsgroup"> <i class="fa fa-group fa-fw"></i>管理讨论组
-		</a></span>
+		</a></span>-->
 	</div>
 
 	<div id="deptpanels" style="padding-left:10px;padding-top: 15px;width:1300px;">

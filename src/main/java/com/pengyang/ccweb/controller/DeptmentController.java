@@ -247,4 +247,32 @@ public class DeptmentController {
 
 		return map.get(Constants.ROOT_DEPT_ID);
 	}
+
+	@RequestMapping(value = "/dept/discuss/{deptId}", method = RequestMethod.POST)
+	@ResponseBody
+	public Message addDiscussGroup(
+			@PathVariable int deptId,
+			@RequestParam(value = "groupName", required = true) String groupName,
+			HttpSession session) {
+		User user = (User) session.getAttribute("user");
+
+		ARRequest req = new ARRequest();
+		req.setBranchNo(Constants.BRANCH_NO);
+		req.setFunctionNo(EFunctionID.DEPT_DISCUSS_GROUP_ADD.getId());
+		req.setParam("i_dept_id", deptId);
+		req.setParam("i_company_id", user.getCompanyId());
+		req.setParam("i_user_id", user.getAdminId());
+		req.setParam("i_group_head", groupName);
+
+		ARResponse resp = ARCorrespond.post(null, req);
+
+		Message message = Message.fromResponse(resp);
+		if (resp.getErroNo() == 0) {
+			if (resp.next()) {
+				//TODO:
+			}
+		}
+
+		return message;
+	}
 }

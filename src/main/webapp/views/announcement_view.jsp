@@ -42,7 +42,7 @@
 			</div>
 		</div>
 
-		<c:if test="${announcement.status!=0}">
+		<c:if test="${announcement.status!=0 && announcement.status!=9}">
 			<div class="panel panel-default">
 				<div class="panel-heading">审核记录</div>
 				<div class="panel-body">

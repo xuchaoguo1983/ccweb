@@ -87,6 +87,8 @@
 					<li></li>
 					<li><a id="menu_depts" href="./depts"><i
 							class="fa fa-sitemap fa-fw"></i> 部门管理</a></li>
+					<li><a id="menu_jobs" href="./jobs"><i
+							class="fa fa-diamond fa-fw"></i> 职级管理</a></li>		
 					<li><a id="menu_users" href="./members"><i
 							class="fa fa-users fa-fw"></i> 成员管理</a></li>
 					<li><a id="menu_templates" href="./templates"><i

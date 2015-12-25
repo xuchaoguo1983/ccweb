@@ -2,7 +2,7 @@
 <system>
     <category name="server" description="服务器配置">
     	<!-- 111.47.110.174 -->
-        <item name="host" value="202.103.39.205" description="服务器" /> <!-- 开发环境  202.103.39.205-->
+        <item name="host" value="27.24.190.207" description="服务器" /> <!-- 开发环境  202.103.39.205-->
         <!-- 10000 -->   
         <item name="port" value="30000" description="服务器监听的端口" />  <!-- 开发环境    30000 --> 
         <item name="minnum" value="10:10" description="服务器启动时创建的最小ASClient连接数" />

@@ -677,3 +677,7 @@ a {
 #previewDiv .panel .panel-body span {
 	color: #333333;
 }
+
+#applyListTable td {
+	border-top-style:none;
+}

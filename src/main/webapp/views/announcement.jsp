@@ -12,6 +12,10 @@
 		<span class="title">公告管理</span>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn"> <input type="radio"
+				name="statuBtn" id="draftFilterBtn" autocomplete="off"
+				value="9"> 草稿
+			</label>
+			<label class="btn"> <input type="radio"
 				name="statuBtn" id="underVerifyFilterBtn" autocomplete="off"
 				value="0"> 待审核
 			</label> <label class="btn"> <input type="radio" name="statuBtn"
