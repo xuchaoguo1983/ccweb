@@ -60,8 +60,8 @@ public class LoginController {
 		ARRequest req = new ARRequest();
 		req.setBranchNo(Constants.BRANCH_NO);
 		req.setFunctionNo(EFunctionID.LOGIN.getId());
-		req.setParam("i_admin_mobile", "13926466986");
-		req.setParam("i_admin_pwd", "123456");
+		req.setParam("i_admin_mobile", login.getPhone());
+		req.setParam("i_admin_pwd", login.getPassword());
 
 		ARResponse resp = ARCorrespond.post(null, req);
 
