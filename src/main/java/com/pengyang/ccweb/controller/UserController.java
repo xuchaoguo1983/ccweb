@@ -49,6 +49,7 @@ public class UserController {
 				member.setUserName(resp.getValue("user_name"));
 				member.setUserImage(resp.getValue("user_image"));
 				member.setMobile(resp.getValue("mobile"));
+				member.setEmail(resp.getValue("email"));
 				member.setCompanyName(resp.getValue("company_name"));
 				member.setPosition(resp.getValue("position"));
 				member.setStatus(resp.getValue("status"));
@@ -81,6 +82,7 @@ public class UserController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_user_name", member.getUserName());
 		req.setParam("i_mobile", member.getMobile());
+		req.setParam("i_email", member.getEmail());
 		req.setParam("i_company_name", member.getCompanyName());
 		req.setParam("i_position", member.getPosition());
 		req.setParam("i_status", member.getStatus());

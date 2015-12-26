@@ -201,6 +201,14 @@
 									name="officeTell">
 							</div>
 						</div>
+						
+						<div class="form-group">
+							<label for="cur_email" class="col-sm-3 control-label">Email地址：</label>
+							<div class="col-sm-5">
+								<input type="email" class="form-control" id="cur_email"
+									name="email">
+							</div>
+						</div>
 
 						<div class="form-group">
 							<label for="cur_companyName" class="col-sm-3 control-label">公司名称：</label>

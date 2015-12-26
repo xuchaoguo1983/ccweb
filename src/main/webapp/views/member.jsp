@@ -77,6 +77,11 @@
 					<div class="col-xs-4 left">办公电话：</div>
 					<div id="officeTellCell" class="col-xs-8 right"></div>
 				</div>
+				
+				<div class="row">
+					<div class="col-xs-4 left">Email地址：</div>
+					<div id="emailCell" class="col-xs-8 right"></div>
+				</div>
 
 				<div class="row">
 					<div class="col-xs-4 left">公司名称：</div>
@@ -152,6 +157,14 @@
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="officeTell"
 									name="officeTell">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="email" class="col-sm-3 control-label">Email地址：</label>
+							<div class="col-sm-5">
+								<input type="email" class="form-control" id="email"
+									name="email">
 							</div>
 						</div>
 

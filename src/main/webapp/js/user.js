@@ -35,6 +35,7 @@ $(function() {
 		$('#cur_userName').val(data.userName);
 		$('#cur_mobile').val(data.mobile);
 		$('#cur_officeTell').val(data.officeTell);
+		$('#cur_email').val(data.email);
 		$('#cur_companyName').val(data.companyName);
 		$('#cur_address').val(data.address);
 		$('#cur_position').val(data.position);

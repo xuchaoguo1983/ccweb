@@ -12,6 +12,7 @@ public class Member implements Serializable {
 	private String userName;
 	private String userImage;
 	private String mobile;
+	private String email;
 	private String companyName;
 	private String position;
 	private String status;
@@ -51,6 +52,14 @@ public class Member implements Serializable {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getCompanyName() {

@@ -384,6 +384,7 @@ function setMemberInfo(data) {
 	$("#infobar #userNameCell").html(data.userName);
 	$("#infobar #userDeptCell").html(getActiveDeptName());
 	$("#infobar #mobileCell").html(data.mobile);
+	$("#infobar #emailCell").html(data.email);
 	$("#infobar #companyNameCell").html(data.companyName);
 	$("#infobar #positionCell").html(data.position);
 	$("#infobar #statusCell").html(MEMBER_STATUS_MAP[data.status]);
@@ -407,6 +408,7 @@ function setMemberInfo(data) {
 				// copy member data
 				$("#userName").val($("#infobar #userNameCell").html());
 				$("#mobile").val($("#infobar #mobileCell").html());
+				$("#email").val($("#infobar #emailCell").html());
 				$("#companyName").val($("#infobar #companyNameCell").html());
 				$("#position").val($("#infobar #positionCell").html());
 				$("#status").val(

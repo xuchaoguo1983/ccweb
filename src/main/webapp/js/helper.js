@@ -42,6 +42,11 @@ var MEMBER_STATUS_MAP = {
 	'3' : '禁用'
 };
 
+var MEMBER_VERIFY_STATUS = {
+	'1' : '通过',
+	'2' : '不通过'
+};
+
 // 模板类型
 var TEMPLATE_TYPE_MAP = {
 	'1' : '费用',

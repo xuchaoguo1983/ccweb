@@ -28,6 +28,7 @@ import com.pengyang.ccweb.Constants;
 import com.pengyang.ccweb.EFunctionID;
 import com.pengyang.ccweb.bo.Member;
 import com.pengyang.ccweb.bo.MemberAudit;
+import com.pengyang.ccweb.bo.MemberAuditResult;
 import com.pengyang.ccweb.bo.Message;
 import com.pengyang.ccweb.bo.PageMeta;
 import com.pengyang.ccweb.bo.PageWrapper;
@@ -82,6 +83,7 @@ public class MemberController {
 				member.setUserName(resp.getValue("user_name"));
 				member.setUserImage(resp.getValue("user_image"));
 				member.setMobile(resp.getValue("mobile"));
+				member.setEmail(resp.getValue("email"));
 				member.setCompanyName(resp.getValue("company_name"));
 				member.setPosition(resp.getValue("position"));
 				member.setStatus(resp.getValue("status"));
@@ -130,6 +132,7 @@ public class MemberController {
 		req.setParam("i_company_id", user.getCompanyId());
 		req.setParam("i_user_name", member.getUserName());
 		req.setParam("i_mobile", member.getMobile());
+		req.setParam("i_email", member.getEmail());
 		req.setParam("i_company_name", member.getCompanyName());
 		req.setParam("i_position", member.getPosition());
 		req.setParam("i_status", member.getStatus());
@@ -169,6 +172,7 @@ public class MemberController {
 				member.setUserName(resp.getValue("user_name"));
 				member.setUserImage(resp.getValue("user_image"));
 				member.setMobile(resp.getValue("mobile"));
+				member.setEmail(resp.getValue("email"));
 				member.setCompanyName(resp.getValue("company_name"));
 				member.setPosition(resp.getValue("position"));
 				member.setStatus(resp.getValue("status"));
@@ -348,6 +352,88 @@ public class MemberController {
 			pw.setPage(pageMeta);
 			message.setData(pw);
 		}
+
+		return message;
+	}
+
+	@RequestMapping(value = "/member/audits/view/{userId}", method = RequestMethod.GET)
+	@ResponseBody
+	public Message auditview(@PathVariable int userId,
+			@RequestParam(value = "recordId") String recordId,
+			@RequestParam(value = "companyId") String companyId) {
+		ARRequest req = new ARRequest();
+		req.setBranchNo(Constants.BRANCH_NO);
+		req.setFunctionNo(EFunctionID.MEMBER_VIEW.getId());
+		req.setParam("i_company_id", companyId);
+		req.setParam("i_user_id", userId);
+
+		ARResponse resp = ARCorrespond.post(null, req);
+		Message message = Message.fromResponse(resp);
+
+		Member[] memberCompareInfo = new Member[2];
+		message.setData(memberCompareInfo);
+		if (resp.getErroNo() == 0) {
+			if (resp.next()) {
+				Member member = new Member();
+
+				member.setUserId(Integer.valueOf(resp.getValue("user_id")));
+				member.setUserName(resp.getValue("user_name"));
+				member.setUserImage(resp.getValue("user_image"));
+				member.setMobile(resp.getValue("mobile"));
+				member.setEmail(resp.getValue("email"));
+				member.setCompanyName(resp.getValue("company_name"));
+				member.setPosition(resp.getValue("position"));
+				member.setStatus(resp.getValue("status"));
+				member.setAddress(resp.getValue("address"));
+				member.setOfficeTell(resp.getValue("office_tel"));
+				member.setBirthPlace(resp.getValue("birth_place"));
+
+				memberCompareInfo[0] = member;
+				// ²éÑ¯ÐÞ¸Ä¼ÇÂ¼
+				ARRequest req2 = new ARRequest();
+				req2.setBranchNo(Constants.BRANCH_NO);
+				req2.setFunctionNo(EFunctionID.MEMBER_AUDIT_VIEW.getId());
+				req2.setParam("i_company_id", companyId);
+				req2.setParam("i_user_id", userId);
+				req2.setParam("i_record_id", recordId);
+
+				ARResponse resp2 = ARCorrespond.post(null, req);
+				if (resp2.getErroNo() == 0 && resp2.next()) {
+					Member member2 = new Member();
+					member2.setUserName(resp2.getValue("user_name"));
+					member2.setMobile(resp2.getValue("mobile"));
+					member2.setOfficeTell(resp2.getValue("office_tel"));
+					member2.setEmail(resp2.getValue("email"));
+					member2.setBirthPlace(resp2.getValue("address"));
+					member2.setCompanyName(resp2.getValue("company_name"));
+					member2.setPosition(resp2.getValue("position"));
+					member2.setAddress(resp2.getValue("company_addres"));
+
+					memberCompareInfo[1] = member2;
+				}
+
+			}
+		}
+
+		return message;
+
+	}
+
+	@RequestMapping(value = "/member/audits/verify", method = RequestMethod.POST)
+	@ResponseBody
+	public Message auditVerify(
+			@ModelAttribute("auditResult") MemberAuditResult auditResult) {
+		ARRequest req = new ARRequest();
+		req.setBranchNo(Constants.BRANCH_NO);
+		req.setFunctionNo(EFunctionID.MEMBER_AUDIT_VERIFY.getId());
+		req.setParam("i_company_id", auditResult.getCompanyId());
+		req.setParam("i_record_id", auditResult.getRecordId());
+		req.setParam("i_user_id", auditResult.getUserId());
+		req.setParam("i_verify_status", auditResult.getVerifyStatus());
+		req.setParam("i_verify_desc", auditResult.getVerifyDesc());
+
+		ARResponse resp = ARCorrespond.post(null, req);
+		Message message = Message.fromResponse(resp);
 
 		return message;
 	}

@@ -14,10 +14,10 @@ public enum EFunctionID {
 	DEPT_DISCUSS_GROUP_ADD(640541), // 讨论组添加
 	DEPT_DISCUSS_GROUP_QUERY(640542), // 讨论组查询
 	DEPT_DISCUSS_GROUP_DELETE(640543), // 讨论组删除
-	
+
 	JOB_QUERY(640549), // 商会职级查询
 	JOB_UPDATE(640550), // 商会职级修改
-	JOB_AUTH_UPDATE(640551),//商会职级权限设置
+	JOB_AUTH_UPDATE(640551), // 商会职级权限设置
 	JOB_LIST(640076), // 查询职务列表
 
 	MEMBER_LIST(640306), // 查询部门成员
@@ -28,6 +28,8 @@ public enum EFunctionID {
 	MEMBER_MOVE(640310), // 成员部门移动
 	MEMBER_UPLOAD(640311), // 成员批量上传
 	MEMBER_AUDIT_LIST(640548), // 查询成员修改记录
+	MEMBER_AUDIT_VIEW(640552), // 查询成员修改详情
+	MEMBER_AUDIT_VERIFY(640544),//成员修改记录审核
 
 	TEMPLATE_CREATE(640081), // 新增模版
 	TEMPLATE_LIST(640082), // 模版列表查询
